@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KP Tuition – Excellence in Education</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #ff6b00;
+  --orange-light: #ff8c38;
+  --orange-pale: #fff3e8;
+  --blue: #1a1aff;
+  --blue-dark: #0d0d99;
+  --blue-mid: #2323e0;
+  --yellow: #ffe600;
+  --white: #ffffff;
+  --offwhite: #f7f8ff;
+  --text: #0d0d2b;
+  --muted: #5a5a8a;
+  --light-border: rgba(26,26,255,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Nunito', sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; }
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:#f0f0ff; }
+::-webkit-scrollbar-thumb { background:var(--orange); border-radius:10px; }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 5%; height:70px;
+  background:var(--blue);
+  box-shadow:0 4px 24px rgba(26,26,255,0.3);
+}
+.logo {
+  font-family:'Poppins', sans-serif;
+  font-size:1.55rem; font-weight:800; color:var(--white);
+  display:flex; align-items:center; gap:10px; text-decoration:none;
+}
+.logo-icon {
+  width:38px; height:38px; background:var(--orange);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:900; color:#fff; flex-shrink:0;
+}
+.logo span { color:var(--yellow); }
+.nav-links { display:flex; gap:0.2rem; list-style:none; align-items:center; }
+.nav-links a {
+  color:rgba(255,255,255,0.85); text-decoration:none;
+  font-size:0.85rem; font-weight:700; letter-spacing:0.04em;
+  padding:7px 13px; border-radius:8px;
+  transition:all 0.2s; text-transform:uppercase;
+}
+.nav-links a:hover { background:rgba(255,255,255,0.15); color:#fff; }
+.nav-cta {
+  background:var(--orange) !important; color:#fff !important;
+  padding:9px 20px !important; border-radius:8px !important;
+  font-weight:800 !important; box-shadow:0 4px 14px rgba(255,107,0,0.5);
+}
+.nav-cta:hover { background:#e55a00 !important; transform:translateY(-2px); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger span { width:26px; height:2.5px; background:#fff; border-radius:3px; display:block; }
+
+/* HERO */
+#home {
+  min-height:100vh; padding-top:70px;
+  background:linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 50%, #000066 100%);
+  position:relative; overflow:hidden; display:flex; align-items:center;
+}
+.circle1 { position:absolute; width:500px; height:500px; border-radius:50%; background:var(--orange); opacity:.12; top:-150px; right:-100px; animation:pulse 4s ease-in-out infinite; }
+.circle2 { position:absolute; width:280px; height:280px; border-radius:50%; background:var(--yellow); opacity:.08; bottom:-80px; left:5%; animation:pulse 5s 1s ease-in-out infinite; }
+.hero-dots { position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.07) 1.5px, transparent 1.5px); background-size:32px 32px; }
+.hero-stripe { position:absolute; bottom:0; left:0; right:0; height:6px; background:repeating-linear-gradient(90deg, var(--orange) 0, var(--orange) 60px, var(--yellow) 60px, var(--yellow) 120px); }
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+
+.hero-inner {
+  position:relative; z-index:2; max-width:1200px; margin:0 auto;
+  padding:60px 5%; display:grid; grid-template-columns:1.2fr 1fr; gap:4rem; align-items:center;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--yellow); color:var(--blue-dark);
+  font-size:0.78rem; font-weight:900; letter-spacing:0.1em; text-transform:uppercase;
+  padding:7px 18px; border-radius:100px; margin-bottom:1.5rem;
+  box-shadow:0 4px 16px rgba(255,230,0,0.4); animation:fadeUp .5s ease both;
+}
+h1.hero-title {
+  font-family:'Poppins', sans-serif; font-size:clamp(2.5rem,5vw,3.8rem);
+  font-weight:800; line-height:1.1; color:#fff; margin-bottom:1.4rem;
+  animation:fadeUp .5s .1s ease both;
+}
+.hl { color:var(--yellow); }
+.hero-desc { font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,0.72); margin-bottom:2.2rem; animation:fadeUp .5s .2s ease both; }
+.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeUp .5s .3s ease both; }
+.btn-primary {
+  background:var(--orange); color:#fff; padding:14px 30px; border-radius:10px;
+  font-weight:800; font-size:.95rem; text-decoration:none; border:2px solid var(--orange);
+  transition:all .2s; box-shadow:0 6px 20px rgba(255,107,0,.45); display:inline-flex; align-items:center; gap:6px;
+}
+.btn-primary:hover { background:#e55a00; transform:translateY(-3px); box-shadow:0 10px 28px rgba(255,107,0,.5); }
+.btn-ghost {
+  background:transparent; color:#fff; padding:14px 30px; border-radius:10px;
+  font-weight:700; font-size:.95rem; text-decoration:none; border:2px solid rgba(255,255,255,.35); transition:all .2s;
+}
+.btn-ghost:hover { border-color:var(--yellow); color:var(--yellow); }
+
+.hero-card {
+  background:rgba(255,255,255,.07); backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.15); border-radius:20px; padding:2.5rem;
+  animation:fadeUp .5s .4s ease both;
+}
+.hero-card-title { font-size:1rem; font-weight:800; color:var(--yellow); margin-bottom:1.5rem; text-transform:uppercase; letter-spacing:.08em; }
+.stat-row { display:flex; flex-direction:column; gap:1rem; }
+.stat-item { display:flex; align-items:center; gap:1rem; background:rgba(255,255,255,.07); border-radius:12px; padding:1rem 1.2rem; border:1px solid rgba(255,255,255,.1); }
+.stat-num { font-family:'Poppins',sans-serif; font-size:1.8rem; font-weight:800; color:var(--orange); min-width:64px; }
+.stat-lbl { color:rgba(255,255,255,.7); font-size:.88rem; font-weight:600; line-height:1.4; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px);} to{opacity:1;transform:none;} }
+.reveal { opacity:0; transform:translateY(30px); transition:opacity .65s ease, transform .65s ease; }
+.reveal.visible { opacity:1; transform:none; }
+
+section { padding:90px 5%; }
+.container { max-width:1200px; margin:0 auto; }
+.eyebrow {
+  display:inline-block; background:var(--orange); color:#fff;
+  font-size:.72rem; font-weight:900; text-transform:uppercase; letter-spacing:.14em;
+  padding:5px 14px; border-radius:6px; margin-bottom:1rem;
+}
+.sec-title { font-family:'Poppins',sans-serif; font-size:clamp(1.9rem,3.5vw,2.7rem); font-weight:800; line-height:1.2; color:var(--text); margin-bottom:1rem; }
+.sec-desc { color:var(--muted); font-size:1.02rem; line-height:1.8; max-width:560px; }
+.center { text-align:center; } .center .sec-desc { margin:0 auto; }
+
+/* ABOUT */
+#about { background:var(--offwhite); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.tutors-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.tutor-card {
+  background:#fff; border-radius:20px; overflow:hidden;
+  border:2px solid var(--light-border); transition:all .3s;
+  box-shadow:0 4px 20px rgba(26,26,255,.06); text-align:center;
+}
+.tutor-card:hover { transform:translateY(-8px); box-shadow:0 16px 40px rgba(26,26,255,.15); border-color:var(--orange); }
+.tutor-photo-wrap {
+  background:linear-gradient(135deg, var(--blue), var(--blue-dark));
+  padding:2rem 2rem 1.8rem; position:relative;
+}
+.tutor-avatar {
+  width:110px; height:110px; border-radius:50%;
+  border:4px solid var(--orange);
+  background:linear-gradient(135deg, var(--orange-light), var(--orange));
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto; font-size:2.5rem; color:#fff; font-weight:900;
+  font-family:'Poppins',sans-serif;
+}
+.tutor-img {
+  width:110px; height:110px; border-radius:50%;
+  border:4px solid var(--orange); object-fit:cover; display:block; margin:0 auto;
+}
+.tutor-badge {
+  position:absolute; bottom:-13px; left:50%; transform:translateX(-50%);
+  background:var(--yellow); color:var(--blue-dark);
+  font-size:.68rem; font-weight:900; text-transform:uppercase; letter-spacing:.08em;
+  padding:5px 16px; border-radius:100px; white-space:nowrap;
+  box-shadow:0 4px 12px rgba(255,230,0,.4);
+}
+.tutor-info { padding:1.8rem 1.2rem 1.5rem; }
+.tutor-name { font-family:'Poppins',sans-serif; font-size:.97rem; font-weight:800; color:var(--text); margin-bottom:4px; }
+.tutor-sub { font-size:.8rem; color:var(--muted); font-weight:600; }
+
+.photo-hint {
+  margin-top:1.2rem; background:#fff3e8;
+  border:2px dashed var(--orange); border-radius:12px;
+  padding:.9rem 1.2rem; font-size:.82rem; color:var(--orange);
+  font-weight:700; display:flex; gap:8px; align-items:flex-start;
+}
+
+.about-features { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+.about-feat {
+  display:flex; gap:1rem; align-items:flex-start;
+  background:#fff; border-radius:14px; padding:1.2rem 1.4rem;
+  border-left:4px solid var(--orange); box-shadow:0 2px 12px rgba(0,0,0,.05); transition:all .2s;
+}
+.about-feat:hover { transform:translateX(6px); box-shadow:0 4px 20px rgba(255,107,0,.12); }
+.feat-icon { font-size:1.5rem; flex-shrink:0; }
+.feat-title { font-weight:800; color:var(--text); font-size:.95rem; margin-bottom:3px; }
+.feat-desc { font-size:.85rem; color:var(--muted); line-height:1.5; }
+
+/* BATCH */
+#batch { background:var(--blue); position:relative; overflow:hidden; }
+#batch::before {
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.02) 20px,rgba(255,255,255,.02) 40px);
+}
+.batch-inner { position:relative; z-index:1; }
+.batch-top { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-bottom:3rem; }
+.batch-title { font-family:'Poppins',sans-serif; font-size:clamp(1.9rem,3.5vw,2.6rem); font-weight:800; color:#fff; margin-bottom:1rem; }
+.batch-desc { color:rgba(255,255,255,.65); font-size:1.02rem; line-height:1.8; }
+.batch-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.batch-card {
+  background:rgba(255,255,255,.08); border:2px solid rgba(255,255,255,.12);
+  border-radius:18px; padding:2rem; text-align:center; backdrop-filter:blur(10px); transition:all .3s;
+}
+.batch-card:hover { background:rgba(255,255,255,.14); border-color:var(--orange); transform:translateY(-6px); }
+.bc-icon { font-size:2.5rem; margin-bottom:1rem; }
+.bc-title { font-family:'Poppins',sans-serif; font-size:1.05rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+.bc-text { color:rgba(255,255,255,.6); font-size:.88rem; line-height:1.6; }
+.bc-pill { display:inline-block; background:var(--orange); color:#fff; font-size:.72rem; font-weight:800; padding:4px 14px; border-radius:100px; margin-top:.8rem; text-transform:uppercase; letter-spacing:.06em; }
+
+/* COURSES */
+#courses { background:#fff; }
+.courses-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+.course-card {
+  border-radius:18px; padding:2rem; border:2px solid transparent;
+  background:var(--offwhite); transition:all .3s; position:relative; overflow:hidden;
+}
+.course-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg, var(--blue), var(--orange));
+  transform:scaleX(0); transform-origin:left; transition:transform .35s;
+}
+.course-card:hover { border-color:var(--orange); transform:translateY(-8px); box-shadow:0 20px 50px rgba(255,107,0,.15); background:#fff; }
+.course-card:hover::before { transform:scaleX(1); }
+.ci { font-size:2.2rem; margin-bottom:.9rem; display:block; }
+.clvl { font-size:.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.12em; color:var(--orange); margin-bottom:5px; }
+.cname { font-family:'Poppins',sans-serif; font-size:1.1rem; font-weight:800; color:var(--text); margin-bottom:.65rem; }
+.cdesc { font-size:.87rem; color:var(--muted); line-height:1.65; margin-bottom:1.1rem; }
+.ctags { display:flex; flex-wrap:wrap; gap:.4rem; }
+.ctag { background:rgba(26,26,255,.07); color:var(--blue); font-size:.7rem; font-weight:800; padding:4px 12px; border-radius:100px; }
+
+/* INTERESTED */
+#interested { background:linear-gradient(135deg,#fff9f0,#fff3e0); border-top:4px solid var(--orange); border-bottom:4px solid var(--orange); }
+.int-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:5rem; align-items:start; }
+.perks { display:flex; flex-direction:column; gap:.85rem; margin-top:2rem; }
+.perk { display:flex; align-items:center; gap:.8rem; font-size:.95rem; font-weight:700; color:var(--text); }
+.perk-check { width:28px; height:28px; border-radius:8px; background:var(--orange); display:flex; align-items:center; justify-content:center; color:#fff; font-size:.85rem; flex-shrink:0; font-weight:900; }
+
+.enroll-form { background:#fff; border-radius:20px; padding:2.5rem; box-shadow:0 8px 40px rgba(255,107,0,.15); border:2px solid rgba(255,107,0,.2); }
+.form-head { font-family:'Poppins',sans-serif; font-size:1.35rem; font-weight:800; color:var(--text); margin-bottom:1.75rem; display:flex; align-items:center; gap:10px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.field { display:flex; flex-direction:column; gap:6px; margin-bottom:1rem; }
+.field label { font-size:.78rem; font-weight:800; color:var(--text); letter-spacing:.06em; text-transform:uppercase; }
+.field input, .field select, .field textarea {
+  border:2px solid #e8e8f0; border-radius:10px; padding:11px 14px;
+  font-size:.95rem; font-family:'Nunito',sans-serif; color:var(--text);
+  background:#f9f9ff; transition:all .2s; outline:none;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color:var(--orange); background:#fff; box-shadow:0 0 0 4px rgba(255,107,0,.1);
+}
+.field textarea { resize:none; }
+.submit-btn {
+  width:100%; background:linear-gradient(135deg,var(--orange),#e55a00);
+  color:#fff; padding:14px; border:none; border-radius:10px;
+  font-size:1rem; font-weight:800; cursor:pointer; letter-spacing:.04em;
+  font-family:'Nunito',sans-serif; transition:all .2s; margin-top:.5rem;
+  box-shadow:0 6px 20px rgba(255,107,0,.35);
+}
+.submit-btn:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(255,107,0,.45); }
+
+/* TESTIMONIALS */
+#testimonials { background:var(--offwhite); }
+.tgrid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+.tcard { background:#fff; border-radius:18px; padding:1.8rem; border:2px solid var(--light-border); transition:all .3s; }
+.tcard:hover { border-color:var(--orange); transform:translateY(-6px); box-shadow:0 16px 40px rgba(255,107,0,.12); }
+.tcard-stars { color:var(--orange); font-size:1rem; margin-bottom:.8rem; letter-spacing:2px; }
+.tcard-q { font-size:.9rem; line-height:1.75; color:var(--text); margin-bottom:1.4rem; font-style:italic; }
+.tcard-q::before { content:'"'; color:var(--orange); font-size:1.5rem; line-height:0; vertical-align:-.3em; margin-right:3px; font-style:normal; font-weight:800; }
+.tcard-author { display:flex; align-items:center; gap:.8rem; }
+.av { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--orange)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:1rem; flex-shrink:0; font-family:'Poppins',sans-serif; }
+.an { font-weight:800; color:var(--text); font-size:.88rem; }
+.ag { font-size:.78rem; color:var(--muted); font-weight:600; }
+
+/* CONTACT */
+#contact { background:#fff; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:5rem; align-items:start; }
+.ccards { display:flex; flex-direction:column; gap:1.2rem; margin-top:2rem; }
+.ccard { display:flex; align-items:center; gap:1.2rem; background:var(--offwhite); border-radius:14px; padding:1.3rem 1.5rem; border:2px solid transparent; transition:all .2s; }
+.ccard:hover { border-color:var(--orange); box-shadow:0 6px 20px rgba(255,107,0,.1); }
+.ccard-icon { width:50px; height:50px; border-radius:12px; background:linear-gradient(135deg,var(--blue),var(--blue-mid)); display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+.ccard-label { font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:3px; }
+.ccard-val { font-weight:800; color:var(--text); font-size:.97rem; }
+.ccard-val a { color:inherit; text-decoration:none; }
+.ccard-val a:hover { color:var(--orange); }
+.cform { background:var(--offwhite); border-radius:20px; padding:2.5rem; border:2px solid var(--light-border); }
+
+/* FOOTER */
+footer { background:var(--blue-dark); padding:4rem 5% 2rem; }
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
+.footer-brand .logo { font-size:1.6rem; margin-bottom:1rem; }
+.footer-brand p { color:rgba(255,255,255,.42); font-size:.88rem; line-height:1.75; max-width:280px; }
+.footer-col h4 { color:#fff; font-weight:800; margin-bottom:1.1rem; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; }
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+.footer-col ul li a { color:rgba(255,255,255,.38); font-size:.88rem; text-decoration:none; font-weight:600; transition:color .2s; }
+.footer-col ul li a:hover { color:var(--yellow); }
+.footer-hr { border:none; border-top:1px solid rgba(255,255,255,.07); margin-bottom:2rem; }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+.footer-copy { color:rgba(255,255,255,.28); font-size:.82rem; font-weight:600; }
+.footer-socials { display:flex; gap:.8rem; }
+.soc { width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.38); font-size:.78rem; font-weight:800; text-decoration:none; transition:all .2s; font-family:'Poppins',sans-serif; }
+.soc:hover { background:var(--orange); color:#fff; border-color:var(--orange); transform:translateY(-3px); }
+
+#toast { position:fixed; bottom:2rem; right:2rem; z-index:9999; background:#fff; color:var(--text); padding:1rem 1.5rem; border-radius:12px; border-left:5px solid var(--orange); font-size:.93rem; font-weight:700; transform:translateY(130%); opacity:0; transition:all .4s; box-shadow:0 8px 32px rgba(0,0,0,.15); max-width:320px; }
+#toast.show { transform:none; opacity:1; }
+
+@media(max-width:960px) {
+  .nav-links { display:none; flex-direction:column; position:absolute; top:70px; left:0; right:0; background:var(--blue); padding:1rem 5% 1.5rem; }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  .hero-inner, .about-grid, .batch-top, .int-grid, .contact-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .courses-grid, .tgrid { grid-template-columns:1fr 1fr; }
+  .batch-cards { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:1rem; text-align:center; }
+  .form-row { grid-template-columns:1fr; }
+}
+@media(max-width:600px) {
+  .courses-grid, .tgrid { grid-template-columns:1fr; }
+  section { padding:70px 5%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="logo">
+    <div class="logo-icon">KP</div>
+    KP <span>&nbsp;Tuition</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" onclick="cm()">Home</a></li>
+    <li><a href="#about" onclick="cm()">About</a></li>
+    <li><a href="#courses" onclick="cm()">Courses</a></li>
+    <li><a href="#batch" onclick="cm()">Batch Info</a></li>
+    <li><a href="#testimonials" onclick="cm()">Reviews</a></li>
+    <li><a href="#contact" onclick="cm()">Contact</a></li>
+    <li><a href="#interested" class="nav-cta" onclick="cm()">Enroll Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="circle1"></div>
+  <div class="circle2"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🎓 Trusted Tuition Centre — Vijayawada</div>
+      <h1 class="hero-title">Building <span class="hl">Bright Futures</span> from Class 1 to 10</h1>
+      <p class="hero-desc">KP Tuition provides dedicated, expert coaching for school students up to Class 10 — both offline and online. Expert tutors. Personal attention. Real results.</p>
+      <div class="hero-btns">
+        <a href="#interested" class="btn-primary">🎯 Enroll Now — Free Demo</a>
+        <a href="#courses" class="btn-ghost">View Subjects ↓</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <div class="hero-card-title">⚡ Why Choose KP Tuition?</div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="stat-num">500+</div><div class="stat-lbl">Students Successfully Guided</div></div>
+        <div class="stat-item"><div class="stat-num">98%</div><div class="stat-lbl">Students Improved Their Grades</div></div>
+        <div class="stat-item"><div class="stat-num">1–10</div><div class="stat-lbl">All Classes Covered — 6 Subjects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">Meet the Tutors</span>
+        <h2 class="sec-title" style="margin-bottom:2rem;">Expert Teachers, Caring Mentors</h2>
+        <div class="tutors-grid">
+
+  <!-- Tutor 1 -->
+  <div class="tutor-card">
+    <div class="tutor-photo-wrap">
+
+      <!-- Female Tutor Image -->
+      <img 
+        src="C:\Users\chara\OneDrive\Pictures\Screenshots\Screenshot 2026-05-19 092252.png" 
+        alt="Kodali Prathibha"
+        class="tutor-img"
+      >
+
+      <div class="tutor-badge">Lead Tutor</div>
+    </div>
+
+    <div class="tutor-info">
+      <div class="tutor-name">Kodali Prathibha</div>
+      <div class="tutor-qual">MSc, BEd</div>
+      <div class="tutor-sub">Mathematics & Science</div>
+      <div class="experience">25 years of experience</div>
+    </div>
+  </div>
+
+  <!-- Tutor 2 -->
+  <div class="tutor-card">
+    <div class="tutor-photo-wrap">
+
+      <!-- Male Tutor Image -->
+      <img 
+        src="C:\Users\chara\iCloudPhotos\Photos\5e06ac18-b7b9-48e0-befb-b1cfd114c48e.jpg" 
+        alt="Kolluri Venu"
+        class="tutor-img"
+      >
+
+      <div class="tutor-badge">Senior Tutor</div>
+    </div>
+
+    <div class="tutor-info">
+      <div class="tutor-name">Kolluri Venu</div>
+      <div class="tutor-sub">Telugu & Social Studies</div>
+    </div>
+  </div>
+
+</div>
+        <div class="photo-hint">
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">About KP Tuition</span>
+        <h2 class="sec-title">Learning That Actually Sticks</h2>
+        <p class="sec-desc">KP Tuition is a dedicated coaching centre for school students from Class 1 to 10 in Vijayawada. With passionate tutors and a student-first approach, we make every concept clear, simple and memorable.</p>
+        <div class="about-features">
+          <div class="about-feat"><div class="feat-icon">👩‍🏫</div><div><div class="feat-title">Expert & Caring Tutors</div><div class="feat-desc">Kodali Prathibha and Kolluri Venu bring years of experience and a genuine passion for each student's growth.</div></div></div>
+          <div class="about-feat"><div class="feat-icon">🖥️</div><div><div class="feat-title">Offline & Online Classes</div><div class="feat-desc">Attend at our Vijayawada centre or join from home — same quality, same teacher, same results guaranteed.</div></div></div>
+          <div class="about-feat"><div class="feat-icon">📝</div><div><div class="feat-title">Regular Tests & Reports</div><div class="feat-desc">Weekly assessments and monthly progress reports keep students and parents fully informed at every step.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BATCH INFO -->
+<section id="batch">
+  <div class="container batch-inner">
+    <div class="batch-top reveal">
+      <div>
+        <span class="eyebrow" style="background:var(--yellow);color:var(--blue-dark);">Batch Details</span>
+        <h2 class="batch-title">One Focused Batch.<br>Maximum Attention.</h2>
+      </div>
+      <p class="batch-desc">We believe in quality over quantity. KP Tuition runs a single, dedicated batch so every student receives individual attention — no one gets left behind, ever.</p>
+    </div>
+    <div class="batch-cards reveal">
+      <div class="batch-card"><div class="bc-icon">🏫</div><div class="bc-title">Offline Classes</div><div class="bc-text">Attend in person at our centre in Vijayawada for a classroom experience with direct tutor interaction and peer learning.</div><div class="bc-pill">In-Centre · Vijayawada</div></div>
+      <div class="batch-card"><div class="bc-icon">💻</div><div class="bc-title">Online Classes</div><div class="bc-text">Join live interactive sessions from home — same curriculum, same tutor, same quality. Study from anywhere comfortably!</div><div class="bc-pill">Live · Interactive · Flexible</div></div>
+      <div class="batch-card"><div class="bc-icon">👥</div><div class="bc-title">Single Batch</div><div class="bc-text">One focused batch means small group sizes, personalised attention and zero distractions — every student matters.</div><div class="bc-pill">Class 1 – 10 · All Subjects</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Subjects We Teach</span>
+      <h2 class="sec-title">Complete School Curriculum — Class 1 to 10</h2>
+      <p class="sec-desc">All core school subjects covered with expert guidance, helping students build a strong foundation at every level.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card reveal"><span class="ci">📐</span><div class="clvl">Classes 1 – 10</div><div class="cname">Mathematics</div><div class="cdesc">From basic numbers to algebra, geometry and trigonometry — we make maths logical and approachable for every student.</div><div class="ctags"><span class="ctag">Arithmetic</span><span class="ctag">Algebra</span><span class="ctag">Geometry</span></div></div>
+      <div class="course-card reveal"><span class="ci">🔬</span><div class="clvl">Classes 6 – 10</div><div class="cname">Science</div><div class="cdesc">Physics, Chemistry and Biology concepts simplified with real-world examples, diagrams and easy memory techniques.</div><div class="ctags"><span class="ctag">Physics</span><span class="ctag">Chemistry</span><span class="ctag">Biology</span></div></div>
+      <div class="course-card reveal"><span class="ci">🌐</span><div class="clvl">Classes 1 – 10</div><div class="cname">English</div><div class="cdesc">Grammar, reading comprehension, essay writing and spoken confidence — building strong communicators from an early age.</div><div class="ctags"><span class="ctag">Grammar</span><span class="ctag">Writing</span><span class="ctag">Reading</span></div></div>
+      <div class="course-card reveal"><span class="ci">🗺️</span><div class="clvl">Classes 6 – 10</div><div class="cname">Social Studies</div><div class="cdesc">History, Geography, Civics and Economics made engaging through maps, timelines and real-world connections.</div><div class="ctags"><span class="ctag">History</span><span class="ctag">Geography</span><span class="ctag">Civics</span></div></div>
+      <div class="course-card reveal"><span class="ci">🔤</span><div class="clvl">Classes 1 – 10</div><div class="cname">Telugu / Hindi</div><div class="cdesc">Mother tongue and second-language coaching covering reading, writing, grammar and literature for board exams.</div><div class="ctags"><span class="ctag">Telugu</span><span class="ctag">Hindi</span><span class="ctag">Grammar</span></div></div>
+      <div class="course-card reveal"><span class="ci">💻</span><div class="clvl">Classes 6 – 10</div><div class="cname">Computer Science</div><div class="cdesc">Digital literacy, basic programming concepts and computer fundamentals aligned with the school board curriculum.</div><div class="ctags"><span class="ctag">Basics</span><span class="ctag">Typing</span><span class="ctag">Logic</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTED / ENROLL -->
+<section id="interested">
+  <div class="container">
+    <div class="int-grid">
+      <div class="reveal">
+        <span class="eyebrow">Get Started</span>
+        <h2 class="sec-title">Interested? Enroll Your Child Today!</h2>
+        <p class="sec-desc">Take the first step — fill the form and we'll contact you within 24 hours to schedule a free demo class with zero obligations.</p>
+        <div class="perks">
+          <div class="perk"><div class="perk-check">✓</div>Free first demo class — zero commitment</div>
+          <div class="perk"><div class="perk-check">✓</div>Both offline (Vijayawada) & online available</div>
+          <div class="perk"><div class="perk-check">✓</div>Single focused batch — Class 1 to 10</div>
+          <div class="perk"><div class="perk-check">✓</div>Regular tests and monthly progress reports</div>
+          <div class="perk"><div class="perk-check">✓</div>Highly affordable fees with flexible plans</div>
+          <div class="perk"><div class="perk-check">✓</div>Personal attention from expert tutors</div>
+        </div>
+      </div>
+      <div class="enroll-form reveal">
+        <div class="form-head">📋 Book a Free Demo Class</div>
+        <div class="form-row">
+          <p
+style="
+line-height:1.8;
+margin-bottom:2rem;
+color:var(--muted);
+"
+>
+
+Open the enrollment form and submit your
+details directly through Google Forms.
+
+</p>
+
+<a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSddtwXfWohnpKhglhwF71pJ42dNFNV-hgnJj-xVaUbuOrtOOg/viewform?usp=sharing&ouid=117032322514318027050"
+  target="_blank"
+  style="
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    background:linear-gradient(135deg,#ff6b00,#e55a00);
+    color:white;
+
+    padding:16px 32px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-size:1rem;
+    font-weight:800;
+
+    font-family:'Nunito',sans-serif;
+
+    box-shadow:0 8px 25px rgba(255,107,0,0.35);
+
+    transition:all 0.3s ease;
+  "
+
+  onmouseover="
+    this.style.transform='translateY(-4px)';
+    this.style.boxShadow='0 14px 35px rgba(255,107,0,0.45)';
+  "
+
+  onmouseout="
+    this.style.transform='translateY(0px)';
+    this.style.boxShadow='0 8px 25px rgba(255,107,0,0.35)';
+  "
+>
+
+🎯 Open Enrollment Form
+
+</a>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Student Reviews</span>
+      <h2 class="sec-title">What Parents & Students Say</h2>
+      <p class="sec-desc">Real stories from students and parents who've experienced the KP Tuition difference first-hand.</p>
+    </div>
+    <div class="tgrid">
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">My daughter used to struggle with Maths. After joining KP Tuition, she actually enjoys it now. She scored 95 in her recent exams! Highly recommend.</div><div class="tcard-author"><div class="av">SR</div><div><div class="an">Taruni</div><div class="ag">Parent · Class 7</div></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">The online classes are just as good as offline. My son learns from home and the teachers are always available for doubt-clearing. Brilliant experience!</div><div class="tcard-author"><div class="av">RK</div><div><div class="an">vivek </div><div class="ag">Parent · Class 10</div></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Kodali ma'am explains Science in such a simple way. I finally understand everything. My marks went from 60 to 88 in just three months!</div><div class="tcard-author"><div class="av">AP</div><div><div class="an">lalith vital</div><div class="ag">Student · Class 10</div></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Venu sir makes English so interesting! His teaching style helped me go from failing to distinction. Best tuition I've ever attended.</div><div class="tcard-author"><div class="av">KT</div><div><div class="an">Ankush</div><div class="ag">Student · Class 7</div></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Very affordable and excellent quality. The small batch means my child gets noticed and helped personally. Will recommend to all my friends!</div><div class="tcard-author"><div class="av">PD</div><div><div class="an">Chethan chowdary</div><div class="ag">Parent · Class 6</div></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><div class="tcard-q">Weekly tests and feedback keep me on track. I know exactly what to improve. KP Tuition has made me a much more confident student!</div><div class="tcard-author"><div class="av">VN</div><div><div class="an">Hanish sai </div><div class="ag">Student · Class 8</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Contact Us</span>
+        <h2 class="sec-title">Get In Touch With Us</h2>
+        <p class="sec-desc">Have a question about admissions, fees, or batch timings? We're always happy to help — reach out anytime!</p>
+        <div class="ccards">
+          <div class="ccard"><div class="ccard-icon">📞</div><div><div class="ccard-label">Call / WhatsApp</div><div class="ccard-val"><a href="tel:+919640031269">+91 96400 31269</a></div></div></div>
+          <div class="ccard"><div class="ccard-icon">✉️</div><div><div class="ccard-label">Email</div><div class="ccard-val"><a href="mailto:kodalipratibha@gmail.com">kodalipratibha@gmail.com</a></div></div></div>
+          <div class="ccard"><div class="ccard-icon">📍</div><div><div class="ccard-label">Location</div><div class="ccard-val">Vijayawada, Andhra Pradesh</div></div></div>
+          <div class="ccard"><div class="ccard-icon">🕐</div><div><div class="ccard-label">Timings</div><div class="ccard-val">Mon – Sat &nbsp;·&nbsp; 4:30 PM – 6:30 PM</div></div></div>
+                    <div class="ccard"><div class="ccard-icon">🕐</div><div><div class="ccard-label">Timings</div><div class="ccard-val">Mon – Sat &nbsp;·&nbsp; 6:00 PM – 8:30 PM  (special caring on mathematics and science</div></div></div>
+
+        </div>
+      </div>
+      <div class="cform reveal">
+        <div class="form-head">✉️ Send Us a Message</div>
+        <div class="field"><label>Your Name</label><input type="text" placeholder="Full name" id="c-name"></div>
+        <div class="field"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="c-phone"></div>
+        <div class="field"><label>Email (Optional)</label><input type="email" placeholder="your@email.com" id="c-email"></div>
+        <div class="field"><label>Message</label><textarea rows="4" placeholder="How can we help you?" id="c-msg"></textarea></div>
+        <button class="submit-btn" onclick="submitContact()">📨 Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><div class="logo-icon" style="margin-right:10px">KP</div>KP <span>&nbsp;Tuition</span></a>
+        <p>Excellence in school education for Classes 1–10 in Vijayawada. Offline & Online classes. Personal attention. Real results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About & Tutors</a></li>
+          <li><a href="#courses">Subjects</a></li>
+          <li><a href="#batch">Batch Info</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#interested">Enroll Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919640031269">📞 +91 96400 31269</a></li>
+          <li><a href="mailto:kodalipratibha@gmail.com">✉️ kodalipratibha@gmail.com</a></li>
+          <li><a href="#contact">📍 Vijayawada, AP</a></li>
+        </ul>
+        <br>
+        <h4>Subjects</h4>
+        <ul>
+          <li><a href="#courses">Mathematics</a></li>
+          <li><a href="#courses">Science</a></li>
+          <li><a href="#courses">English</a></li>
+          <li><a href="#courses">Social Studies</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-hr">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 KP Tuition, Vijayawada · All rights reserved.</span>
+      <div class="footer-socials">
+        <a class="soc" href="#">f</a>
+        <a class="soc" href="#">in</a>
+        <a class="soc" href="#">yt</a>
+        <a class="soc" href="#">wa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+  function cm() { document.getElementById('navLinks').classList.remove('open'); }
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.innerHTML = msg; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  function submitEnroll() {
+    const name = document.getElementById('e-name').value.trim();
+    const phone = document.getElementById('e-phone').value.trim();
+    if (!name || !phone) { showToast('⚠️ Please enter the Student Name and Phone number.'); return; }
+    showToast('✅ <strong>Demo class booked!</strong><br>We\'ll call you on ' + phone + ' within 24 hours.');
+    ['e-name','e-parent','e-class','e-subject','e-phone','e-mode','e-msg'].forEach(id => {
+      const el = document.getElementById(id); if (!el) return;
+      el.tagName === 'SELECT' ? (el.selectedIndex = 0) : (el.value = '');
+    });
+  }
+
+  function submitContact() {
+    const name = document.getElementById('c-name').value.trim();
+    const msg = document.getElementById('c-msg').value.trim();
+    if (!name || !msg) { showToast('⚠️ Please fill in your Name and Message.'); return; }
+    showToast('✅ <strong>Message sent!</strong><br>We\'ll get back to you soon, ' + name + '!');
+    ['c-name','c-phone','c-email','c-msg'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow =
+      window.scrollY > 30 ? '0 6px 30px rgba(26,26,255,.45)' : '0 4px 24px rgba(26,26,255,.3)';
+  });
+</script>
+</body>
+</html>
