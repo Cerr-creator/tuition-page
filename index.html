@@ -34,18 +34,16 @@ nav {
   padding:0 5%; height:70px;
   background:var(--blue);
   box-shadow:0 4px 24px rgba(26,26,255,0.3);
-  
+}
 .logo {
   font-family:'Poppins', sans-serif;
   font-size:1.55rem; font-weight:800; color:var(--white);
   display:flex; align-items:center; gap:10px; text-decoration:none;
 }
 .logo-icon {
-    width:48px;
-    height:48px;
-    border-radius:8px;
-    object-fit:contain;
-    flex-shrink:0;
+  width:38px; height:38px; background:var(--orange);
+  border-radius:10px; display:flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:900; color:#fff; flex-shrink:0;
 }
 .logo span { color:var(--yellow); }
 .nav-links { display:flex; gap:0.2rem; list-style:none; align-items:center; }
@@ -327,12 +325,10 @@ footer { background:var(--blue-dark); padding:4rem 5% 2rem; }
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="logo">
-    <img src="images/kp tuitions logo.jpeg" 
-         alt="KP Tuitions Logo" 
-         class="logo-icon">
-    KP <span>Tuitions</span>
-</a>
+  <a href="#home" class="logo">
+    <div class="logo-icon">KP</div>
+    KP <span>&nbsp;Tuition</span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home" onclick="cm()">Home</a></li>
     <li><a href="#about" onclick="cm()">About</a></li>
@@ -364,7 +360,7 @@ footer { background:var(--blue-dark); padding:4rem 5% 2rem; }
     <div class="hero-card reveal">
       <div class="hero-card-title">⚡ Why Choose KP Tuition?</div>
       <div class="stat-row">
-        <div class="stat-item"><div class="stat-num">150+</div><div class="stat-lbl">Students Successfully Guided</div></div>
+        <div class="stat-item"><div class="stat-num">500+</div><div class="stat-lbl">Students Successfully Guided</div></div>
         <div class="stat-item"><div class="stat-num">98%</div><div class="stat-lbl">Students Improved Their Grades</div></div>
         <div class="stat-item"><div class="stat-num">1–10</div><div class="stat-lbl">All Classes Covered — 6 Subjects</div></div>
       </div>
@@ -387,7 +383,7 @@ footer { background:var(--blue-dark); padding:4rem 5% 2rem; }
 
       <!-- Female Tutor Image -->
       <img 
-        src="images/prathibha.png.jpeg"
+        src="C:\Users\chara\OneDrive\Pictures\Screenshots\Screenshot 2026-05-19 092252.png" 
         alt="Kodali Prathibha"
         class="tutor-img"
       >
@@ -409,7 +405,7 @@ footer { background:var(--blue-dark); padding:4rem 5% 2rem; }
 
       <!-- Male Tutor Image -->
       <img 
-        src="images/venu.png"
+        src="C:\Users\chara\iCloudPhotos\Photos\5e06ac18-b7b9-48e0-befb-b1cfd114c48e.jpg" 
         alt="Kolluri Venu"
         class="tutor-img"
       >
